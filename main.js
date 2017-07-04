@@ -1,25 +1,31 @@
 (function(){
+  'use strict';
+
   var mycontent = document.getElementById('mycontent');
   var setup = {
-    async: false,
+    async: true,
     images: [
-      'https://www.showmetech.com.br/wp-content/uploads/2016/10/google-amp-fast-speed-travel-ss-1920.jpg',
-      'https://gweb-earth.storage.googleapis.com/assets/google_earth_banner.jpg',
-      'http://images.immedia.com.br//26/26516_2_L.gif?c=201705291252',
+      'http://www.sekonic.com/portals/0/articles/zuckerman_on_landscapes_shooting_the_sun_5-7.jpg',
+      'http://www.sekonic.com/portals/0/articles/zuckerman_on_landscapes_shooting_the_sun_5-4.jpg',
+      'http://www.sekonic.com/portals/0/articles/zuckerman_on_landscapes_shooting_the_sun_5-3.jpg',
+      'http://www.sekonic.com/portals/0/articles/zuckerman_on_landscapes_shooting_the_sun_5-2.jpg',
+      'http://www.sekonic.com/portals/0/articles/zuckerman_on_landscapes_shooting_the_sun_5-1.jpg',
     ],
     oncomplete: function (images) {
-      console.log(images);
-      var el = document.createElement('p');
-      el.innerHTML = 'Done!';
-      mycontent.appendChild(el);
+      createText(mycontent, 'Done!', images);
     },
     onimageloaded: function (response) {
-      console.log(response);
-      var el = document.createElement('p');
-      el.innerHTML = 'Loaded ' + response.index + '/' + setup.images.length + ' - ' + response.image.src;
-      mycontent.appendChild(el);
+      createText(mycontent, 'Loaded ' + (Number(response.index) + 1) + '/' + setup.images.length + ' - ' + response.image.src, response);
     }
   };
+
+  function createText(container, text, response) {
+    var el = document.createElement('p');
+    el.innerHTML = text;
+    container.appendChild(el);
+    if(response.image) container.appendChild(response.image);
+    console.log(response);
+  }
 
   var loadimages = new ImgLoader(setup);
   loadimages.start();
