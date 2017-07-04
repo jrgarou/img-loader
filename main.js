@@ -1,7 +1,7 @@
 (function(){
   'use strict';
   var loadimages,
-      imageloader = {
+      setup = {
         async: false,
         images: [
           'https://www.showmetech.com.br/wp-content/uploads/2016/10/google-amp-fast-speed-travel-ss-1920.jpg',
@@ -17,6 +17,6 @@
       }
   ;
 
-  loadimages = new ImageLoader(imageloader);
+  loadimages = new ImgLoader(setup);
   loadimages.start();
 }());

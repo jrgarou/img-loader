@@ -20,7 +20,7 @@ var setup = {
   }
 ;
 
-var loadimages = new ImageLoader(setup);
+var loadimages = new ImgLoader(setup);
 loadimages.start();
 
 ```
