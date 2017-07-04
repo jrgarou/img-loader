@@ -44,7 +44,6 @@ ImgLoader.prototype.check = function () {
 
 ImgLoader.prototype.complete = function () {
   if(this.check()) {
-    console.log(this.images.loaded.length);
     if(!this.async) this.load(this.images.load[this.images.loaded.length], this.images.loaded.length);
   } else {
     this.finish();
