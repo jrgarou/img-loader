@@ -12,14 +12,14 @@
       'http://www.sekonic.com/portals/0/articles/zuckerman_on_landscapes_shooting_the_sun_5-1.jpg',
     ],
     oncomplete: function (images) {
-      createText(mycontent, 'Done!', images);
+      createContent(mycontent, 'Done!', images);
     },
     onimageloaded: function (response) {
-      createText(mycontent, 'Loaded ' + (Number(response.index) + 1) + '/' + setup.images.length + ' - ' + response.image.src, response);
+      createContent(mycontent, 'Loaded ' + (Number(response.index) + 1) + '/' + setup.images.length + ' - ' + response.image.src, response);
     }
   };
 
-  function createText(container, text, response) {
+  function createContent(container, text, response) {
     var el = document.createElement('p');
     el.innerHTML = text;
     container.appendChild(el);
