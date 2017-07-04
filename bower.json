@@ -1,0 +1,20 @@
+{
+  "name": "img-loader",
+  "description": "Javascript img loader",
+  "main": "./src/img-loader.js",
+  "authors": [
+    "jrgarou <jrgarou@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "image"
+  ],
+  "homepage": "https://github.com/jrgarou/img-loader",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
