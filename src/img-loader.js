@@ -1,7 +1,7 @@
 function ImgLoader(options) {
   'use strict';
-  console.log(options);
-  this.async = options.async || true;
+
+  this.async = options.async;
   this.images = {
     load: options.images,
     loaded: [],
@@ -11,6 +11,7 @@ function ImgLoader(options) {
   this.once = (typeof this.images.load === "string");
   this.done = (this.once) ? this.finish : this.complete;
   this.haslistener = window.addEventListener;
+
 }
 
 ImgLoader.prototype.load = function (src, index) {
@@ -43,6 +44,7 @@ ImgLoader.prototype.check = function () {
 
 ImgLoader.prototype.complete = function () {
   if(this.check()) {
+    console.log(this.images.loaded.length);
     if(!this.async) this.load(this.images.load[this.images.loaded.length], this.images.loaded.length);
   } else {
     this.finish();
